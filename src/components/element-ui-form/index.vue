@@ -20,7 +20,7 @@ export default {
     data() {
         return {
             model: {
-                // username: 'tom'
+                username: 'tom'
             }
         }
     }

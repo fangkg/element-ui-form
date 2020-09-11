@@ -5,7 +5,7 @@
     <!-- 显示内部表单项 -->
     <slot></slot>
     <!-- 错误提示信息 -->
-    <p v-if="error">{{error}}</p>
+    <p v-if="error" class='error'>{{error}}</p>
   </div>
 </template>
 
@@ -19,11 +19,14 @@ export default {
     },
     data() {
         return {
-            error: ''
+            error: 'some error!'
         }
     }
 }
 
 </script>
-<style>
+<style scoped>
+.error {
+    color: red;
+}
 </style>
