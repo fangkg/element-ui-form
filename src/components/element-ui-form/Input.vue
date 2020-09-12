@@ -23,6 +23,8 @@ export default {
         // 派发值
         onInput(e) {
             this.$emit('input', e.target.value)
+            // 触发校验
+            this.$parent.$emit('validate')
         }
     }
 }
