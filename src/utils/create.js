@@ -4,8 +4,20 @@
 import Vue from 'vue'
 // create函数的本质要返回组件实例
 export default function create(Component, props){
-    // 实例创建 使用extend方式创建组件并挂载
-    // Vue.extend()
+    // 实例创建 
+    
+    // 方式一 使用extend方式创建组件并挂载
+    // const Ctor = Vue.extend(Component)
+    // const comp = new Ctor({propsData: props})
+    // comp.$mount()
+    // document.body.appendChild(comp.$el)
+    // comp.remove = () => {
+    //     // 移除dom
+    //     document.body.removeChild(comp.$el)
+    //     // 组件销毁
+    //     comp.$destroy()
+    // }
+
 
     // 方式二 借鸡生蛋
     const vm = new Vue({
@@ -28,3 +40,13 @@ export default function create(Component, props){
     }
     return comp
 }
+
+// 使用插件进一步封装便于使用
+// import Notice from '@/components/dialog/Notice.vue'
+// export default {
+//     install(Vue) {
+//         Vue.prototype.$notice = function(options) {
+//             return create(Notice, options)
+//         }
+//     }
+// }
