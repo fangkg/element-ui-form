@@ -20,6 +20,8 @@
 import Input from '@/components/element-ui-form/Input.vue'
 import FormItem from '@/components/element-ui-form/FormItem.vue'
 import Form from '@/components/element-ui-form/Form.vue'
+import create from '@/utils/create'
+import Notice from '@/components/dialog/Notice.vue'
 
 export default {
     components: {
@@ -42,6 +44,12 @@ export default {
     methods: {
         login() {
             this.$refs.formRef.validate(isValid => {
+                // 创建Notice实例
+                create(Notice, {
+                    title: '弹框测试实例',
+                    message: isValid ? '请求登录': '校验失败',
+                    duration: 3000
+                }).show()
                 // 合法
                 if (isValid) {
                     console.log('request login')
